@@ -85,5 +85,15 @@ public class proto {
                       .setType(Person.PhoneType.HOME)).build();
               return person1.getName();		  
 	  }
-	      	 	  
+	      	 
+           //redis
+            
+            
+            
+            
+            
+            
+            
+            
+            
 }

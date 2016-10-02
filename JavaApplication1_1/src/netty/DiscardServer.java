@@ -39,10 +39,10 @@ public class DiscardServer {
             sslCtx = null;
         }
 
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+       // EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap b = new ServerBootstrap();
+           // ServerBootstrap b = new ServerBootstrap();
              Thread test = new Thread(){
                  public void  run(){
                      System.out.println("test threadt"); 
@@ -52,21 +52,19 @@ public class DiscardServer {
              
              
             test.start();
-            
-            
-            b.group(bossGroup, workerGroup)
+            ServerBootstrap b = new ServerBootstrap();            
+            b.group(workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) {
                             ChannelPipeline p = ch.pipeline();
-                            if (sslCtx != null) {
-                                p.addLast(sslCtx.newHandler(ch.alloc()));
-                            }
+                           
                             p.addLast(new DiscardServerHandler());
                         }
                     });
+            
 
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind("127.0.0.1",PORT).sync();
