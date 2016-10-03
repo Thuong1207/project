@@ -64,7 +64,7 @@ public class Connetdb {
        System.out.println(jedis.get("2"));
     
        
-
+  
       //redis write hardare
       final AtomicInteger count = new AtomicInteger();
 
@@ -75,32 +75,7 @@ public class Connetdb {
             output = args[1];
         }
 
-        BufferedWriter out = new BufferedWriter(new FileWriter(output), 1024 * 1024);
-        ParseRDB rdb = new ParseRDB();
-        rdb.init(new File(input));
-        ParseRDB.Entry entry = rdb.next();
-
-        while(entry!=null){
-
-            if(entry.type == ParseRDB.REDIS_STRING){
-                String item = entry.key + "\t" + entry.value + "\t" + entry.expire + "\n";
-                out.write(item);
-                count.incrementAndGet();
-            }
-            entry = rdb.next();
-            if(count.get() % 100000 ==0){
-                System.out.print(".");
-            }
-        }
-        System.out.println("");
-        rdb.close();
-        out.flush();
-        out.close();
-        System.out.println("totol keys : " + count.get());
-    
-       
-       
-       
+        
  }
                 
 }
