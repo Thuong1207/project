@@ -3,13 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package redis;
-import static io.netty.handler.logging.LogLevel.values;
 import java.io.File;
 import java.io.IOException;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.ScanResult;
 
 
 /**
@@ -27,10 +24,10 @@ public class Connet_jedis {
        String key = "name";
        String value = "thuongdc";
        byte[] keys = key.getBytes();
-       byte[] names =value.getBytes();
+       byte[] names = value.getBytes();
       
        //save in dump.rdb  
-       jedis.flushAll();   
+       //jedis.flushAll();   
        jedis.set(keys, names);
        jedis.save();
        
