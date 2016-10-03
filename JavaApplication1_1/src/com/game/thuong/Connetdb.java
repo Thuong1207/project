@@ -11,7 +11,7 @@ package com.game.thuong;
  */
 
 
-import com.sohu.tv.ad.rdb.ParseRDB;
+//import com.sohu.tv.ad.rdb.ParseRDB;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -22,7 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.AdvancedBinaryJedisCommands;
-import net.whitbeck.rdbparser.*;
+//import net.whitbeck.rdbparser.*;
 
 public class Connetdb {
   
