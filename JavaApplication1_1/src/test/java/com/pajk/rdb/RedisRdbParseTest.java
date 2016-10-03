@@ -1,5 +1,7 @@
-package com.pajk.rdb;
+package test.java.com.pajk.rdb;
 
+import com.pajk.rdb.CallBackHandler;
+import com.pajk.rdb.RdbParser;
 import java.io.File;
 
 public class RedisRdbParseTest {
