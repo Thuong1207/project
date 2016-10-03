@@ -23,8 +23,7 @@ public class Connet_jedis1 {
             throws java.io.UnsupportedEncodingException {
         byte[] bytes = text.getBytes("ASCII");
         String encodeString = Base64.encode(bytes);
-       
-        
+  
         return encodeString;
     }
     // Decode
